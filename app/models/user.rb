@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-    validate :emai, presence: true
+    validates :emai, presence: true
 end

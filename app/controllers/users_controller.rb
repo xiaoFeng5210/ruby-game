@@ -11,6 +11,11 @@ class UsersController < ApplicationController
 
   def show
     p '您访问里show'
-
+    user = User.find_by_id params[:id]
+    if user
+      render json: user
+    else
+      head 404
+    end
   end
 end
