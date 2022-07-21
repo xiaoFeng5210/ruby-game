@@ -5,4 +5,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   post '/users/', to: 'users#create'
   get '/users/:id', to: 'users#show'
+
+  post '/validation_codes', to: 'validationCodes#create'
+  namespace :api do
+    namespace :v1 do
+      resources :validation_codes
+    end
+  end
 end
