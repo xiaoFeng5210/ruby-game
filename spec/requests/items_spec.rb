@@ -18,6 +18,7 @@ RSpec.describe "Items", type: :request do
     it "can create an item" do
       expect {post "/api/v1/items", params: { amount: 99 }}.to change { Item.count }.by(1)
       json = JSON.parse(response.body)
+      # 测试注释
       expect(json['resource']['amount']).to eq(99)
     end
   end
