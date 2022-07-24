@@ -14,7 +14,6 @@ Rails.application.routes.draw do
       resource :me, only: [:show]
       resources :items
       resources :tags
-
     end
   end
 end
