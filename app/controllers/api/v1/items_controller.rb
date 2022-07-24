@@ -1,8 +1,12 @@
 class Api::V1::ItemsController < ApplicationController
     # 分页
     def index
-        items = Item.page params[:page]
-        render json: { resources: items }
+        items = Item.page(params[:page]).per(10)
+        render json: { resources: items, pager: {
+            page: params[:page],
+            per_page: 10,
+            count: Item.count
+        }}
     end
 
     def create
